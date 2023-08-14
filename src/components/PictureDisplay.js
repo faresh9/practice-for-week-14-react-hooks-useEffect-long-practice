@@ -26,7 +26,7 @@ const feathers = [
 function PictureDisplay({ size, featherCount, featherColors }) {
   useEffect(() => {
     console.log("PictureDisplay", size, featherCount, featherColors);
-  });
+  }, [size, featherCount, featherColors]);
 
   // TODO: Wrap in useEffect
   const colors = [];
