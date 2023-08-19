@@ -66,7 +66,7 @@ function PictureDisplay({ size, featherCount, featherColors }) {
   }
 
   return (
-    <div className={`image-area medium`}>
+    <div className={`image-area ${sizeClass}`}>
       {colors.map((c, i) => (
         <img
           key={feathers[i]}
