@@ -11,7 +11,7 @@ function App() {
   const [isBrown, setIsBrown] = useState(false);
   const [isLightBrown, setIsLightBrown] = useState(false);
   const [isYellow, setIsYellow] = useState(false);
-
+  const [message, setMessage] = useState("");
   useEffect(() => {
     // console.log('Color Change :: red?', isRed);
     // console.log('Color Change :: orange?', isOrange);
@@ -27,6 +27,15 @@ function App() {
     if (isYellow) colors.push("yellow");
     setFeatherColors(colors);
   }, [isRed, isOrange, isBrown, isLightBrown, isYellow]);
+
+  useEffect(() => {
+    if (featherCount <= 0) setMessage("Oh my! Your bird is naked!");
+    else if (featherCount >= 10) {
+      setMessage("Full turkey!");
+    } else {
+      setMessage("Coming along...");
+    }
+  }, [featherCount]);
   return (
     <>
       <h1>Turkey Creator</h1>
@@ -96,7 +105,7 @@ function App() {
         featherCount={featherCount}
         featherColors={featherColors}
       />
-      <Message size={size} />
+      <Message size={size} featherCount={featherCount} />
     </>
   );
 }
